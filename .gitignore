@@ -1,0 +1,6 @@
+# Excluir archivos generados por Visual Studio
+.vs/
+
+# Excluir carpetas bin y obj generadas durante la compilación
+**/bin/
+**/obj/
