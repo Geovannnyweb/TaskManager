@@ -7,8 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="Enums\" />
+    <ProjectReference Include="..\TaskManager.User.Domain\TaskManager.User.Domain.csproj" />
   </ItemGroup>
 
 </Project>
