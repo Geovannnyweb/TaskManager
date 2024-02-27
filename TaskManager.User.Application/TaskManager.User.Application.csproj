@@ -12,6 +12,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\TaskManager.User.Domain\TaskManager.User.Domain.csproj" />
   </ItemGroup>
 
