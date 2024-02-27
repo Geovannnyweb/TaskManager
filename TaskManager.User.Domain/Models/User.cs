@@ -1,4 +1,5 @@
-﻿using TaskManager.User.Domain.Enums;
+﻿using System.Text.Json.Serialization;
+using TaskManager.User.Domain.Enums;
 
 namespace TaskManager.User.Domain.Models
 {
@@ -11,7 +12,6 @@ namespace TaskManager.User.Domain.Models
         public string? Password { get; set; }
         public string? Email { get; set; }
         public Role Role { get; set; }
-        public ICollection<Task>? Tasks { get; set; }
 
     }
 }
