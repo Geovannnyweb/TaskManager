@@ -5,9 +5,10 @@ namespace TaskManager.Task.Application.Services.Interfaces
     public interface ITaskServices
     {
         Task<IEnumerable<TaskEntity>> GetAllAsync();
-        void SaveAsync(TaskEntity task);
+        Task<TaskEntity> GetTaskByIdAsync(Guid id);
+        Task<TaskEntity> SaveAsync(TaskEntity task);
         Task<TaskEntity> UpdateAsync(Guid id, TaskEntity task);
         Task<TaskEntity> UpdateStatusAsync(Guid id, TaskEntity task);   
-        void DeleteAsync(Guid id);
+        Task<TaskEntity> DeleteAsync(Guid id);
     }
 }

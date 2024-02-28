@@ -10,15 +10,11 @@ namespace TaskManager.User.Application.Services
         {
             _userRepository = userRepository;
         }
-        public async Task<IEnumerable<UserEntity>> GetAllAsync()
-        {
-           return await _userRepository.GetAllAsync();
-        }
+        public async Task<IEnumerable<UserEntity>> GetAllAsync() => await _userRepository.GetAllAsync();
 
-        public void SaveAsync(UserEntity user)
-        {
-            _userRepository.SaveAsync(user);
-        }
+        public async Task<UserEntity> GetByIdAsync(Guid id) => await _userRepository.GetById(id);
+         
+        public async Task<UserEntity> SaveAsync(UserEntity user) => await _userRepository.SaveAsync(user);
 
         public async Task<UserEntity> UpdateAsync(Guid id, UserEntity user)
         {
@@ -31,15 +27,17 @@ namespace TaskManager.User.Application.Services
                 currentUser.Password = user.Password;
                 currentUser.Email = user.Email;
 
-                await _userRepository.UpdateAsync(user);
+                await _userRepository.UpdateAsync(id, user);
             }
             return currentUser!;
         }
 
-        public void DeleteAsync(Guid id)
+        public async Task<UserEntity> DeleteAsync(Guid id)
         {
-            _userRepository.GetById(id);
-            _userRepository.DeleteAsync(id);
+          var existingUser =  await  _userRepository.GetById(id);
+            if (existingUser != null)
+                await _userRepository.DeleteAsync(id);
+            return existingUser!;
         }
 
     }

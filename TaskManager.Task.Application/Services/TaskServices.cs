@@ -12,13 +12,14 @@ namespace TaskManager.Task.Application.Services
             _taskRepository = taskRepository;
         }
         public async Task<IEnumerable<TaskEntity>> GetAllAsync()
-        {
-            return await _taskRepository.GetAllAsync();
-        }
-        public void SaveAsync(TaskEntity task)
-        {
-            _taskRepository.SaveAsync(task);        
-        }
+            => await _taskRepository.GetAllAsync();
+
+        public async Task<TaskEntity> GetTaskByIdAsync(Guid id)
+            => await _taskRepository.GetById(id);
+
+        public async Task<TaskEntity> SaveAsync(TaskEntity task)
+            => await _taskRepository.SaveAsync(task);
+
         public async Task<TaskEntity> UpdateAsync(Guid id, TaskEntity task)
         {
             var currentTask = await _taskRepository.GetById(id);
@@ -45,10 +46,13 @@ namespace TaskManager.Task.Application.Services
             return currentStatus!;
         }
 
-        public void DeleteAsync(Guid id)
+        public async Task<TaskEntity> DeleteAsync(Guid id)
         {
-            _taskRepository.GetById(id);
-            _taskRepository.DeleteAsync(id);
+            var existingTask = await _taskRepository.GetById(id);
+            if(existingTask != null) 
+            await _taskRepository.DeleteAsync(id);
+
+            return existingTask!;
         }
     }
 }

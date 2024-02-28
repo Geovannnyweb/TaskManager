@@ -5,8 +5,9 @@ namespace TaskManager.User.Application.Services.Interfaces
     public interface IUserServices
     {
         Task<IEnumerable<UserEntity>> GetAllAsync();
-        void SaveAsync(UserEntity user);
+        Task<UserEntity> GetByIdAsync(Guid id);
+        Task<UserEntity> SaveAsync(UserEntity user);
         Task<UserEntity> UpdateAsync(Guid id, UserEntity user);
-        void DeleteAsync(Guid id);
+        Task<UserEntity> DeleteAsync(Guid id);
     }
 }
