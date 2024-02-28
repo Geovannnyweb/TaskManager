@@ -30,7 +30,7 @@ namespace TaskManager.Task.Application.Services
                 currentTask.Status = task.Status;
                 currentTask.CreatedDate = task.CreatedDate;
 
-               await _taskRepository.UpdateAsync(task);
+               await _taskRepository.UpdateAsync(id, task);
             }
             return currentTask!;
         }
@@ -41,7 +41,7 @@ namespace TaskManager.Task.Application.Services
             if(currentStatus != null)
             {
                 currentStatus.Status = task.Status;
-                await _taskRepository.UpdateAsync(task);
+                await _taskRepository.UpdateAsync(id, task);
             }
             return currentStatus!;
         }

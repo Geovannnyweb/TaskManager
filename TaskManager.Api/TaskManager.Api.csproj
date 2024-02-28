@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\TaskManager.Task.Application\TaskManager.Task.Application.csproj" />
     <ProjectReference Include="..\TaskManager.Task.Infrastructure\TaskManager.Task.Infrastructure.csproj" />
     <ProjectReference Include="..\TaskManager.User.Application\TaskManager.User.Application.csproj" />
