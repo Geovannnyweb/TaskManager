@@ -5,8 +5,8 @@ namespace TaskManager.User.Application.Services
 {
     public class UserServices : IUserServices
     {
-        private readonly IRepository<UserEntity> _userRepository;
-        public UserServices(IRepository<UserEntity> userRepository) 
+        private readonly IUserRepository<UserEntity> _userRepository;
+        public UserServices(IUserRepository<UserEntity> userRepository) 
         {
             _userRepository = userRepository;
         }

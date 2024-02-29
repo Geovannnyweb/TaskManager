@@ -13,19 +13,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{F280DE96-022
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{D5E26874-54C4-43FC-BFF9-40CB8B905D22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.Task.Domain", "TaskManager.Task.Domain\TaskManager.Task.Domain.csproj", "{E1945253-59CD-487F-866B-DE01B53FB774}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManager.Task.Domain", "TaskManager.Task.Domain\TaskManager.Task.Domain.csproj", "{E1945253-59CD-487F-866B-DE01B53FB774}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.User.Domain", "TaskManager.User.Domain\TaskManager.User.Domain.csproj", "{245AF651-1BAE-4D3B-BB2F-CCB31F99A653}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManager.User.Domain", "TaskManager.User.Domain\TaskManager.User.Domain.csproj", "{245AF651-1BAE-4D3B-BB2F-CCB31F99A653}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.Task.Application", "TaskManager.Task.Application\TaskManager.Task.Application.csproj", "{C82BDE4D-7BEE-4E80-AD86-40A5D219EE89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManager.Task.Application", "TaskManager.Task.Application\TaskManager.Task.Application.csproj", "{C82BDE4D-7BEE-4E80-AD86-40A5D219EE89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.User.Application", "TaskManager.User.Application\TaskManager.User.Application.csproj", "{74E0C055-BE3A-4D1C-ADFC-5C9C92A78FE6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManager.User.Application", "TaskManager.User.Application\TaskManager.User.Application.csproj", "{74E0C055-BE3A-4D1C-ADFC-5C9C92A78FE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.Api", "TaskManager.Api\TaskManager.Api.csproj", "{ABC6FC6E-09FB-4F09-86EE-060248F5A366}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManager.Api", "TaskManager.Api\TaskManager.Api.csproj", "{ABC6FC6E-09FB-4F09-86EE-060248F5A366}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.Task.Infrastructure", "TaskManager.Task.Infrastructure\TaskManager.Task.Infrastructure.csproj", "{B7D03A49-22C2-42DC-8AAD-FBA29B7A6016}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManager.Task.Infrastructure", "TaskManager.Task.Infrastructure\TaskManager.Task.Infrastructure.csproj", "{B7D03A49-22C2-42DC-8AAD-FBA29B7A6016}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.User.Infrastructure", "TaskManager.User.Infrastructure\TaskManager.User.Infrastructure.csproj", "{3A8C349B-C24D-4FD0-AA7E-BCBE046AFA84}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManager.User.Infrastructure", "TaskManager.User.Infrastructure\TaskManager.User.Infrastructure.csproj", "{3A8C349B-C24D-4FD0-AA7E-BCBE046AFA84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.Shared.Infrastructure", "TaskManager.Shared.Infrastructure\TaskManager.Shared.Infrastructure.csproj", "{FD3A1D8A-FE3D-46CB-96B0-B13AE8DCE35A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +63,10 @@ Global
 		{3A8C349B-C24D-4FD0-AA7E-BCBE046AFA84}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A8C349B-C24D-4FD0-AA7E-BCBE046AFA84}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A8C349B-C24D-4FD0-AA7E-BCBE046AFA84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD3A1D8A-FE3D-46CB-96B0-B13AE8DCE35A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD3A1D8A-FE3D-46CB-96B0-B13AE8DCE35A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD3A1D8A-FE3D-46CB-96B0-B13AE8DCE35A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD3A1D8A-FE3D-46CB-96B0-B13AE8DCE35A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,6 +79,7 @@ Global
 		{ABC6FC6E-09FB-4F09-86EE-060248F5A366} = {F280DE96-0225-402C-8161-FE1EA07DB734}
 		{B7D03A49-22C2-42DC-8AAD-FBA29B7A6016} = {CB835FCE-1B52-4575-8000-66753E77B30F}
 		{3A8C349B-C24D-4FD0-AA7E-BCBE046AFA84} = {CB835FCE-1B52-4575-8000-66753E77B30F}
+		{FD3A1D8A-FE3D-46CB-96B0-B13AE8DCE35A} = {CB835FCE-1B52-4575-8000-66753E77B30F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {228BF42F-C29C-417F-AF78-2EBA4D2F7C65}

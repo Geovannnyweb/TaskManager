@@ -5,9 +5,9 @@ namespace TaskManager.Task.Application.Services
 {
     public class TaskServices : ITaskServices
     {
-        private readonly IRepository<TaskEntity> _taskRepository;
+        private readonly ITaskRepository<TaskEntity> _taskRepository;
 
-        public TaskServices(IRepository<TaskEntity> taskRepository)
+        public TaskServices(ITaskRepository<TaskEntity> taskRepository)
         {
             _taskRepository = taskRepository;
         }
