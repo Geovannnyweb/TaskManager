@@ -1,6 +1,6 @@
 ﻿namespace TaskManager.Task.Application.Services.Interfaces
 {
-    public interface IRepository<T> where T : class
+    public interface ITaskRepository<T> where T : class
     {
         Task<IEnumerable<T>> GetAllAsync();
         Task<T> GetById(Guid id);
