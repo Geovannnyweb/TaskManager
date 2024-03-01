@@ -6,9 +6,9 @@ namespace TaskManager.Shared.Infrastructure.Repositories
 {
     public class TaskRepository<T> : ITaskRepository<T> where T : class
     {
-        private readonly TaskManagerDbContext _taskManagerDbContext;
+        private readonly TaskManagerDBContext _taskManagerDbContext;
 
-        public TaskRepository(TaskManagerDbContext taskManagerDbContext)
+        public TaskRepository(TaskManagerDBContext taskManagerDbContext)
         {
             _taskManagerDbContext = taskManagerDbContext;
         }
@@ -17,7 +17,7 @@ namespace TaskManager.Shared.Infrastructure.Repositories
 
         public async Task<T> GetById(Guid id)
         {
-            return (await _taskManagerDbContext.Set<T>().FindAsync())!;
+            return (await _taskManagerDbContext.Set<T>().FindAsync(id))!;
         }
 
         public async Task<T> SaveAsync(T entity)
@@ -32,7 +32,7 @@ namespace TaskManager.Shared.Infrastructure.Repositories
             var currentEntity = await _taskManagerDbContext.Set<T>().FindAsync(id);
             if (currentEntity != null)
             {
-                _taskManagerDbContext.Set<T>().Update(entity);
+                _taskManagerDbContext.Set<T>().Update(currentEntity);
                 await _taskManagerDbContext.SaveChangesAsync();
             }
             return currentEntity!;

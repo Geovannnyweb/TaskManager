@@ -14,7 +14,7 @@ namespace TaskManager.Task.Application.Services
         public async Task<IEnumerable<TaskEntity>> GetAllAsync()
             => await _taskRepository.GetAllAsync();
 
-        public async Task<TaskEntity> GetTaskByIdAsync(Guid id)
+        public async Task<TaskEntity> GetByIdAsync(Guid id)
             => await _taskRepository.GetById(id);
 
         public async Task<TaskEntity> SaveAsync(TaskEntity task)
@@ -33,17 +33,6 @@ namespace TaskManager.Task.Application.Services
                await _taskRepository.UpdateAsync(id, task);
             }
             return currentTask!;
-        }
-
-        public async Task<TaskEntity> UpdateStatusAsync(Guid id, TaskEntity task)
-        {
-            var currentStatus = await _taskRepository.GetById(id);
-            if(currentStatus != null)
-            {
-                currentStatus.Status = task.Status;
-                await _taskRepository.UpdateAsync(id, task);
-            }
-            return currentStatus!;
         }
 
         public async Task<TaskEntity> DeleteAsync(Guid id)

@@ -15,21 +15,22 @@ namespace TaskManager.Api.Controllers.TaskControllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TaskEntity>>> Get() =>  Ok(await _taskServices.GetAllAsync());
+        public async Task<ActionResult<IEnumerable<TaskEntity>>> Get() => Ok(await _taskServices.GetAllAsync());
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<TaskEntity>> GetTaskById(Guid id) => Ok(await _taskServices.GetTaskByIdAsync(id));
+        public async Task<ActionResult<TaskEntity>> GetTaskByIdAsync(Guid id) => Ok(await _taskServices.GetByIdAsync(id));
 
-        [HttpPut]
+        [HttpPost]
+        public async Task<ActionResult<TaskEntity>> SaveAsync([FromBody] TaskEntity taskEntity)
+        {
+            await _taskServices.SaveAsync(taskEntity);
+            return Ok();
+        }
+
+        [HttpPut("{id}")]
         public async Task<ActionResult<TaskEntity>> UpdateTaskAsync(Guid id, [FromBody] TaskEntity taskEntity)
         {
             await _taskServices.UpdateAsync(id, taskEntity);
-            return Ok();
-        }
-        [HttpPut("{id}")]
-        public async Task<ActionResult<TaskEntity>> UpdateStatusTaskAsync(Guid id, [FromBody] TaskEntity taskEntity)
-        {
-            await _taskServices.UpdateStatusAsync(id, taskEntity);
             return Ok();
         }
         [HttpDelete("{id}")]
