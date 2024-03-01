@@ -5,16 +5,16 @@ namespace TaskManager.Task.Application.Services
 {
     public class TaskServices : ITaskServices
     {
-        private readonly IRepository<TaskEntity> _taskRepository;
+        private readonly ITaskRepository<TaskEntity> _taskRepository;
 
-        public TaskServices(IRepository<TaskEntity> taskRepository)
+        public TaskServices(ITaskRepository<TaskEntity> taskRepository)
         {
             _taskRepository = taskRepository;
         }
         public async Task<IEnumerable<TaskEntity>> GetAllAsync()
             => await _taskRepository.GetAllAsync();
 
-        public async Task<TaskEntity> GetTaskByIdAsync(Guid id)
+        public async Task<TaskEntity> GetByIdAsync(Guid id)
             => await _taskRepository.GetById(id);
 
         public async Task<TaskEntity> SaveAsync(TaskEntity task)
@@ -30,20 +30,9 @@ namespace TaskManager.Task.Application.Services
                 currentTask.Status = task.Status;
                 currentTask.CreatedDate = task.CreatedDate;
 
-               await _taskRepository.UpdateAsync(task);
+               await _taskRepository.UpdateAsync(id, task);
             }
             return currentTask!;
-        }
-
-        public async Task<TaskEntity> UpdateStatusAsync(Guid id, TaskEntity task)
-        {
-            var currentStatus = await _taskRepository.GetById(id);
-            if(currentStatus != null)
-            {
-                currentStatus.Status = task.Status;
-                await _taskRepository.UpdateAsync(task);
-            }
-            return currentStatus!;
         }
 
         public async Task<TaskEntity> DeleteAsync(Guid id)
