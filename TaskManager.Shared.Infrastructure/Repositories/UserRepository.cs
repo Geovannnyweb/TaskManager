@@ -6,8 +6,8 @@ namespace TaskManager.Shared.Infrastructure.Repositories
 {
     public class UserRepository<T> : IUserRepository<T> where T : class
     {
-        private readonly TaskManagerDbContext taskManagerDbContext;
-        public UserRepository(TaskManagerDbContext taskManagerDbContext)
+        private readonly TaskManagerDBContext taskManagerDbContext;
+        public UserRepository(TaskManagerDBContext taskManagerDbContext)
         {
             this.taskManagerDbContext = taskManagerDbContext;
         }

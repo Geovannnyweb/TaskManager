@@ -4,9 +4,9 @@ using TaskEntity = TaskManager.Task.Domain.Models.Task;
 
 namespace TaskManager.Shared.Infrastructure.DBContext
 {
-    public class TaskManagerDbContext : DbContext
+    public class TaskManagerDBContext : DbContext
     {
-        public TaskManagerDbContext(DbContextOptions dbContextOptions) : base(dbContextOptions) { }
+        public TaskManagerDBContext(DbContextOptions<TaskManagerDBContext> dbContextOptions) : base(dbContextOptions) { }
 
         public DbSet<TaskEntity> Tasks { get; set; }
         public DbSet<UserEntity> Users { get; set; }
@@ -17,7 +17,7 @@ namespace TaskManager.Shared.Infrastructure.DBContext
             {
                 task.ToTable("Tasks");
                 task.HasKey(task => task.TaskId);
-                task.HasOne(p => p.Users).WithMany().HasForeignKey(task => task.UserId).OnDelete(DeleteBehavior.Cascade);
+                task.HasOne(p => p.Users).WithMany().HasForeignKey(task => task.UserId);
                 task.Property(task => task.Title).IsRequired().HasMaxLength(100);
                 task.Property(task => task.Description).IsRequired(false).HasMaxLength(200);
                 task.Property(task => task.Status).IsRequired();
